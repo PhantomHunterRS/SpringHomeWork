@@ -10,8 +10,8 @@ import java.util.UUID;
 
 @Controller
 public class IndexController {
-    //@GetMapping("/")
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping("/")
+    //@RequestMapping(value = "/", method = RequestMethod.GET)
     public String index (Model model){
         model.addAttribute("message","My message plus random UUID -> " + UUID.randomUUID());
         return "index";
