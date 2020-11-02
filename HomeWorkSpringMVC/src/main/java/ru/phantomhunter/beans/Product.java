@@ -1,32 +1,36 @@
 package ru.phantomhunter.beans;
 
 public class Product {
-    private static long idP = 0;
-    private Long id;
+    private static int idP = 0;
+    private Integer id;
     private String title;
-    private Double cost;
+    private double cost;
 
     public Product() {
-        id = ++idP;
+        id = idP++;
     }
     public Product(String title, Double cost) {
-        id = ++idP;
+        id = idP++;
         this.title = title;
         this.cost = cost;
     }
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
-    public String getName() {
+    public String getTitle() {
         return title;
     }
-    public void setName(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
     public Double getCost() {
         return cost;
     }
-    public void setCost(Double cost) {
+    public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public String toString(){
+        return id + " - " + title + " - " + cost;
     }
 }

@@ -2,6 +2,8 @@ package ru.phantomhunter.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.phantomhunter.beans.Product;
@@ -24,5 +26,22 @@ public class ProductController {
         System.out.println(products);
         model.addAttribute("products",products);
         return "ProductsList";
+    }
+    @RequestMapping(value = "/{id}" , method = RequestMethod.GET)
+    public String getById(Model model, @PathVariable("id") Integer id){
+        Product byId = productService.getId(id);
+        model.addAttribute("product", byId == null ? new Product():byId);
+        return "Products";
+    }
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String getFormNewProduct(Model model){
+        model.addAttribute("product",new Product());
+        return "NewProduct";
+    }
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    public String addNewProduct(Product product){
+        Product savedProduct = productService.save(product);
+        System.out.println("Saved Product");
+        return "redirect:/products/";
     }
 }

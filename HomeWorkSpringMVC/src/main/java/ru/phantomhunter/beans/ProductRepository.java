@@ -8,7 +8,6 @@ import java.util.List;
 @Repository
 public class ProductRepository {
     private List<Product> products = new ArrayList<>();
-
     {
         products.add(new Product("Milk.House in the village",90.00));
         products.add(new Product("Dragee.M&M's Peanut",100.00));
@@ -20,14 +19,14 @@ public class ProductRepository {
     public List<Product> getProducts() {
         return products;
     }
-    public void getListProduct(){
-        for (Product one:products) {
-            System.out.println(one.getId()+ " "+ one.getName() + " "+ one.getCost());
-        }
-    }
 
     public Product getById(int id) {
         return products.get(id);
     }
+    public Product save(Product product){
+        products.add(product);
+        return product;
+    }
 
 }
+

@@ -22,4 +22,7 @@ public class ProductService {
         products.sort(Comparator.comparing(Product::getId));
         return products;
     }
+    public Product save(Product product){
+        return productRep.save(product);
+    }
 }
