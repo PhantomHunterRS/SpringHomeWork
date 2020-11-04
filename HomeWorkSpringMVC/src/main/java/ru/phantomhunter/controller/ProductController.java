@@ -35,7 +35,7 @@ public class ProductController {
     }
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String getFormNewProduct(Model model){
-        //model.addAttribute("product",new Product());
+        model.addAttribute("product",new Product());
         return "NewProduct";
     }
     @RequestMapping(value = "/new", method = RequestMethod.POST)
