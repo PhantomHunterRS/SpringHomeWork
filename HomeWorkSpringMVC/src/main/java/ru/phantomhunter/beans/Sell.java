@@ -1,6 +1,8 @@
 package ru.phantomhunter.beans;
 
 import javax.xml.crypto.Data;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Sell {
@@ -10,6 +12,7 @@ public class Sell {
     private Product product;
     private long amount;
     private double price;
+
     ProductRepository productRepository = new ProductRepository();
 
     public Sell(int idProduct,long amount,String client) {
@@ -21,6 +24,7 @@ public class Sell {
               price = productSell.getCost();
           }
         };
+
     }
 
 }

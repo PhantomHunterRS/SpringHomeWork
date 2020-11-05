@@ -7,7 +7,7 @@ public class Client {
     private static int idP = 0;
     private Integer id;
     private String nameClient;
-    private List<Sell> cart = new ArrayList<>();
+    private List<Sell> cartClient = new ArrayList<>();
 
     public Client() {
         id = idP++;
@@ -27,10 +27,9 @@ public class Client {
     }
 
     public List<Sell> getCart() {
-        return cart;
+        return cartClient;
     }
-
-    public void setCart(List<Sell> cart) {
-        this.cart = cart;
+    public void addSells(Sell sell){
+        cartClient.add(sell);
     }
 }
